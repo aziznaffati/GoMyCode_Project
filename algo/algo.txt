@@ -1,0 +1,25 @@
+Algorithme phrase;
+Var TX :chaine ;
+ T,NbC,NbM,NbP,Nbv,I :entier ;
+Debut
+Ecrire(‘Donner un texte’) ; Lire(TX) ;
+T←Taille(TX) ;
+NbC←0 ; NbM←0 ; NbP←0 ;Nbv←0; I←1 ;
+Tantque (I≤N) Faire 
+	Si (TX[I]=’ ‘)Alors 
+		I←I+1
+	Sinon
+		Tantque ((I≤N)et(TX[I]≠’ ‘)et(TX[I]≠’. ‘))Faire 
+ 	 		NbC←NbC+1 ; 
+			Si  (TX[I] dans [‘a’,’e’,’i’,’o’,’u’,’y’])Alors
+				Nbv←Nbv+1 ;
+			Fsi;
+			I←I+1 ;
+		Fait ;
+			NbM←NbM+1 ;
+		Si TX[I]=’. ‘ Alors 
+			NbP←NbP+1 Fsi ;
+		Fsi ;
+Fait ;
+Ecrire(‘Nombre de caractère :’,NbC,’ Nombre de voyelle:’,Nbv,’ Nombre de mots :’,NbM,’ Nombre de phrases :’,NbP) ;
+Fin.
