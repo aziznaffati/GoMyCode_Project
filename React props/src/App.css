@@ -1,0 +1,9 @@
+.container{
+  border-width: 1px;
+  border-style: groove;
+  border-color:blue;
+  border-radius: 10px;
+  margin-top: 20px;
+  padding: 5px;
+
+}
