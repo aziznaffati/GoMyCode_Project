@@ -1,0 +1,13 @@
+/* .App {
+  background-image: url("https://besthqwallpapers.com/Uploads/5-3-2021/159141/thumb2-4k-film-cassette-abstract-art-cinema-concepts-grunge-backgrounds.jpg");
+} */
+.Container {
+  display: flex;
+  justify-content: center;
+}
+
+.listMovies {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+}
