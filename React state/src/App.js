@@ -1,65 +1,40 @@
 import React, { Component } from "react";
-import { useState } from "react";
 import "./App.css";
-import MyImg from "./MyImg.JPG";
+import { Button } from "react-bootstrap";
+import Comp from "./component/component.js";
 
-export class App extends Component {
+export default class App extends Component {
   state = {
-    fullName: "Naffati Mohamed Aziz",
-    bio: "Student at GoMyCode",
-    imgSrc: MyImg,
-    profession: "front-end developer",
-    show: false,
-    count: 0,
-  };
-  /*componentDidMount=() =>{
-    this.intervalId= setInterval(()=>{
-       this.setState({count:this.state.count+1})
-       }
-     , 1000);
-     
- }*/
-  showContent = () => {
-    // this.setState({show:!this.state.show})
-    //this.setState({show: this.state.show? false:true})
-    if (this.state.show) {
-      this.setState({ show: false });
-    } else {
-      setInterval(() => {
-        this.setState({ count: this.state.count + 1 });
-      }, 1000);
-      this.setState({ count: 0 });
-      this.setState({ show: true });
-    }
-  };
+    Person: {
+      fullName: "Lionel Andrés Messi Cuccitini",
+      imgSrc: "/images/messi.jpg",
+      Bio: {
+        Profession: "Football Player",
+        Clubs: ["FC Barcelone", "/Paris Saint-Germain"],
+        Goals: 750,
+        Languages: ["Spanish", "/Catalan"],
+      },
+    },
 
+    show: false,
+  };
+  handleShow = () => {
+    this.setState({
+      show: !this.state.show,
+    });
+  };
   render() {
     return (
-      <div className="container">
-        {this.state.show ? (
-          <div>
-            <p>
-              {" "}
-              <img src={this.state.imgSrc}></img>
-            </p>
-            <h1>{this.state.fullName}</h1>
-            <p>{this.state.bio}</p>
-            <p>{this.state.profession}</p>
-            <p>{this.state.count}</p>
-          </div>
-        ) : (
-          "nothing to show click the button"
-        )}
-        <button
-          style={{ backgroundColor: "green", cursor: "pointer" }}
-          className="btn"
-          onClick={this.showContent}
+      <div>
+        <Button
+          variant="danger"
+          onClick={this.handleShow}
+          style={{ marginBottom: "10%" }}
         >
-          Toggle
-        </button>
+          {this.state.show ? "Hide" : "Show"}
+        </Button>
+        {this.state.show && <Comp Person={this.state.Person} />}
       </div>
     );
   }
 }
-
-export default App;
